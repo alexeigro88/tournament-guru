@@ -107,8 +107,10 @@ function TopBar() {
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 36 }}>
           <a href="home.html" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-            <img src="assets/tg-logo.svg" alt="Tournament Guru"
-              style={{ height: 42, width: 'auto' }} />
+            <svg style={{ height: 42, width: 'auto', display: 'block' }} viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+              <text x="10" y="45" fontFamily="Space Grotesk, sans-serif" fontSize="32" fontWeight="700" fill="#dc2626">🏆</text>
+              <text x="50" y="40" fontFamily="Space Grotesk, sans-serif" fontSize="24" fontWeight="600" fill="#0f172a">TG</text>
+            </svg>
           </a>
           <nav style={{ display: 'flex', gap: 22 }}>
             {['Find Events','Host an Event','Coaches','Reviews','Resources'].map((n, i) => (
