@@ -1,0 +1,11 @@
+{
+  "buildCommand": "mkdir -p .output && cp -r . .output/",
+  "outputDirectory": ".output",
+  "public": ".",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tournament Guru</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: #f8fafc; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #0f172a;
+    }
+    #root { min-height: 100vh; }
+    .loading { display: flex; align-items: center; justify-content: center; min-height: 100vh; font-size: 18px; color: #64748b; }
+    .header { padding: 20px; border-bottom: 1px solid #e2e8f0; background: #fff; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+    .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin: 12px 0; }
+    .card h3 { margin: 0 0 8px 0; }
+    .card p { margin: 0; color: #64748b; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div class="loading">Loading Tournament Guru...</div>
+  </div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+
+  <script>
+    // Simple inline data
+    window.TOURNAMENTS = [
+      {
+        id: "t1",
+        name: "Coastal Classic Cup",
+        city: "San Diego",
+        state: "CA",
+        host: "Pacific Soccer",
+        rating: 4.8,
+        reviews: 142,
+        fee: 695,
+        dateStart: "2026-06-12",
+        dateEnd: "2026-06-14"
+      },
+      {
+        id: "t2",
+        name: "Rocky Mountain Showcase",
+        city: "Denver",
+        state: "CO",
+        host: "Mile High Soccer",
+        rating: 4.9,
+        reviews: 318,
+        fee: 1250,
+        dateStart: "2026-07-04",
+        dateEnd: "2026-07-06"
+      }
+    ];
+
+    function App() {
+      return (
+        <div style={{ minHeight: '100vh', background: '#f8fafc' }}>
+          <div style={{ padding: '20px', borderBottom: '1px solid #e2e8f0', background: '#fff' }}>
+            <h1 style={{ margin: 0, fontSize: '24px' }}>Tournament Guru</h1>
+          </div>
+          <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px' }}>
+            <h2>Upcoming Tournaments</h2>
+            {window.TOURNAMENTS.map(t => (
+              <div key={t.id} style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '16px', margin: '12px 0' }}>
+                <h3 style={{ margin: '0 0 8px 0' }}>{t.name}</h3>
+                <p style={{ margin: '0', color: '#64748b', fontSize: '14px' }}>
+                  {t.city}, {t.state} • {t.host}
+                </p>
+                <p style={{ margin: '8px 0 0 0', color: '#0f172a', fontWeight: 'bold' }}>
+                  ${t.fee} • ⭐ {t.rating} ({t.reviews} reviews)
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
