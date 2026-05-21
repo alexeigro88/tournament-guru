@@ -1021,18 +1021,128 @@ function Star() {
 
 // ── Sponsored Banner ──────────────────────────────────────────
 function SponsoredBanner({ accent }) {
+  const [closed, setClosed] = React.useState(false);
+  if (closed) return null;
+  
   return (
     <div style={{
+      padding: '20px 24px',
+      background: 'linear-gradient(90deg, #152342 0%, #2a1f3d 45%, #1a3a52 100%)',
+      borderRadius: 12,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: 24,
+      color: 'white',
       margin: '24px 0',
-      padding: '16px',
-      background: '#f0fdf4',
-      border: `1px solid #dcfce7`,
-      borderRadius: 8,
-      fontSize: 12,
-      color: '#166534',
-      fontWeight: 500
+      minHeight: 100
     }}>
-      ⭐ <strong>Sponsored:</strong> Partner tournaments are highlighted. <a href="#" style={{color: '#16a34a', textDecoration: 'underline'}}>Learn more</a>
+      <div style={{ flex: 1, paddingTop: 2 }}>
+        <div style={{
+          display: 'inline-block',
+          fontSize: 11,
+          fontWeight: 600,
+          letterSpacing: '0.12em',
+          color: '#7fa3c0',
+          marginBottom: 12,
+          textTransform: 'uppercase',
+          border: '1px solid rgba(255, 255, 255, 0.15)',
+          padding: '5px 12px',
+          borderRadius: 4,
+          background: 'rgba(255, 255, 255, 0.03)'
+        }}>
+          ▲ SPONSORED · APEX 11 ATHLETIC
+        </div>
+        <h2 style={{
+          fontSize: 24,
+          fontWeight: 700,
+          margin: '0 0 8px 0',
+          color: '#ffffff',
+          lineHeight: 1.25,
+          letterSpacing: '-0.5px'
+        }}>
+          Win a full Apex 11 team kit for your squad
+        </h2>
+        <p style={{
+          fontSize: 13,
+          fontWeight: 400,
+          color: '#a8bfd4',
+          margin: 0,
+          lineHeight: 1.5,
+          letterSpacing: '-0.2px'
+        }}>
+          Register a U10-U14 roster for any eligible tournament by July 1 to enter.
+        </p>
+      </div>
+      
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-end',
+        gap: 12,
+        flexShrink: 0,
+        justifyContent: 'flex-start'
+      }}>
+        <button onClick={() => setClosed(true)} style={{
+          width: 20,
+          height: 20,
+          background: 'transparent',
+          border: 'none',
+          color: 'rgba(255, 255, 255, 0.5)',
+          fontSize: 14,
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          transition: 'all 0.2s ease',
+          padding: 0,
+          flexShrink: 0
+        }} onMouseEnter={(e) => {
+          e.currentTarget.style.color = 'rgba(255, 255, 255, 0.8)';
+        }} onMouseLeave={(e) => {
+          e.currentTarget.style.color = 'rgba(255, 255, 255, 0.5)';
+        }}>
+          ✕
+        </button>
+        
+        <button style={{
+          padding: '10px 24px',
+          background: '#ffffff',
+          color: '#0f172a',
+          border: 'none',
+          borderRadius: 5,
+          fontSize: 14,
+          fontWeight: 500,
+          cursor: 'pointer',
+          whiteSpace: 'nowrap',
+          transition: 'all 0.2s ease',
+          letterSpacing: '-0.2px'
+        }} onMouseEnter={(e) => {
+          e.currentTarget.style.background = '#f0f4f8';
+          e.currentTarget.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.15)';
+        }} onMouseLeave={(e) => {
+          e.currentTarget.style.background = '#ffffff';
+          e.currentTarget.style.boxShadow = 'none';
+        }}>
+          See eligible events
+        </button>
+        
+        <a href="#" style={{
+          fontSize: 11,
+          color: '#6b8fa3',
+          textDecoration: 'underline',
+          cursor: 'pointer',
+          fontWeight: 400,
+          transition: 'color 0.2s ease',
+          letterSpacing: '-0.1px'
+        }} onMouseEnter={(e) => {
+          e.currentTarget.style.color = '#8ba3b8';
+        }} onMouseLeave={(e) => {
+          e.currentTarget.style.color = '#6b8fa3';
+        }}>
+          Why this ad?
+        </a>
+      </div>
     </div>
   );
 }
